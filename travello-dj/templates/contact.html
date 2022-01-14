@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% load static  %}
+{% load crispy_forms_tags  %}
+
+
+{% block title  %}
+
+contact
+	
+{% endblock title  %}
+
+
+{% block content  %}
+
+	<!-- Home -->
+
+	<div class="home">
+		<div class="background_image" style="background-image:url({% static 'images/contact.jpg' %})"></div>
+	</div>
+
+	<!-- Search -->
+
+	<div class="home_search">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="home_search_container">
+						<div class="home_search_title">Search for your trip</div>
+						<div class="home_search_content">
+							<form action="#" class="home_search_form" id="home_search_form">
+								<div class="d-flex flex-lg-row flex-column align-items-start justify-content-lg-between justify-content-start">
+									<input type="text" class="search_input search_input_1" placeholder="City" required="required">
+									<input type="text" class="search_input search_input_2" placeholder="Departure" required="required">
+									<input type="text" class="search_input search_input_3" placeholder="Arrival" required="required">
+									<input type="text" class="search_input search_input_4" placeholder="Budget" required="required">
+									<button class="home_search_button">search</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Contact -->
+
+	<div class="contact">
+		<div class="container">
+			<div class="row">
+               
+				<!-- Contact Form -->
+				<div class="col-lg-12 mt-3 mb-3">
+					<div class="contact_form_container">
+						<form action="#"  method='POST' id="contact_form" class="contact_form">
+						    {% csrf_token %}
+							{{ form|crispy }}
+							<button class="contact_button btn btn-primary">send</button>
+						</form>
+					</div>
+				</div>
+			
+
+			</div>
+		
+		</div>
+	</div>
+
+	<!-- Map -->
+
+	<div class="contact_map">
+		<!-- Google Map -->
+		<div class="map">
+			<div id="google_map" class="google_map">
+				<div class="map_container">
+					<div id="map"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{% endblock content  %}
